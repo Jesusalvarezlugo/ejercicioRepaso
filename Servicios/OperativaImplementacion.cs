@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata.Ecma335;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,7 +17,7 @@ namespace ejercicioRepaso.Servicios
             ClienteDto cliente =  nuevoCliente();
 
             listaAntigua.Add(cliente);
-            cliente.IdCliente = incrementoId(listaAntigua);
+            cliente.IdCliente = calcularNuevoId(listaAntigua);
         }
 
         private ClienteDto nuevoCliente()
@@ -36,8 +37,10 @@ namespace ejercicioRepaso.Servicios
             return cliente1;
         }
 
-        public long incrementoId(List<ClienteDto> listaAntigua)
+        private long incrementoId(List<ClienteDto> listaAntigua)
         {
+
+            //ERRONEO
             ClienteDto cliente1 = new ClienteDto();
             for (int i=0;i<listaAntigua.Count;i++)
             {
@@ -46,5 +49,24 @@ namespace ejercicioRepaso.Servicios
 
             return cliente1.IdCliente;
         }
+
+        private long calcularNuevoId(List<ClienteDto> listaAntigua)
+        {
+            long idCalculado;
+            int tamanioLista = listaAntigua.Count;
+
+            if (tamanioLista == 0)
+            {
+                idCalculado = 1;
+            }
+            else
+            {
+                idCalculado = listaAntigua[tamanioLista - 1].IdCliente + 1;
+            }
+
+            return idCalculado; 
+        }
+
+      
     }
 }

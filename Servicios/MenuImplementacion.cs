@@ -25,30 +25,34 @@ namespace ejercicioRepaso.Servicios
             Console.WriteLine("2. Cliente");
             Console.WriteLine("####################");
             Console.WriteLine("Elija una opcion: ");
-            opcion=Console.ReadKey(true).KeyChar - (0);
+            opcion=Console.ReadKey(true).KeyChar - ('0');
 
             return opcion;
         }
 
         public int mostrarMenuYSeleccionFunc(int controlador)
         {
-            int opcion=0;
+            int opcion;
 
-            int controlarMenu=-1;
+            
 
-            if (controlarMenu == 0)
+            if (controlador == 0)
             {
+                Console.WriteLine("[INNFO] Menu de cliente");
                 Console.WriteLine("####################");
                 Console.WriteLine("0. Salir");
                 Console.WriteLine("1. Registrar cliente");
                 Console.WriteLine("2. Acceso cliente");
                 Console.WriteLine("####################");
                 Console.WriteLine("Elija una opcion: ");
-                opcion=Console.ReadKey(true).KeyChar- (0);
-
+                opcion=Console.ReadKey(true).KeyChar - ('0');
                 
-            }else if(controlarMenu == 1)
+
+
+            }
+            else 
             {
+                Console.WriteLine("[INNFO] Menu de empleado");
                 Console.WriteLine("####################");
                 Console.WriteLine("0. Salir");
                 Console.WriteLine("1. Validar cliente");
@@ -56,9 +60,9 @@ namespace ejercicioRepaso.Servicios
                 Console.WriteLine("3. Mostrar cliente");
                 Console.WriteLine("####################");
                 Console.WriteLine("Elija una opcion: ");
-                opcion = Console.ReadKey(true).KeyChar - (0);
-
+                opcion = Console.ReadKey(true).KeyChar - ('0');
                 
+
             }
 
             return opcion;
